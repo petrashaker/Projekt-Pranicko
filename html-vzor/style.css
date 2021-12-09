@@ -1,0 +1,359 @@
+/* fonty */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Corinthia:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+/* magie a jednorožci */
+html { box-sizing: border-box; }
+*, *::after, *::before { box-sizing: inherit; }
+
+
+:root {
+	--red-gradient: radial-gradient(circle farthest-corner, #de0000 0%, #6c0000 100%);
+	--green-gradient: radial-gradient(circle farthest-corner, #61a431 0%, #184617 100%);
+	--blue-gradient: radial-gradient(circle farthest-corner, #0059de 0%, #012064 100%);
+
+	--color-red: #a1262a;
+
+	--font-title: 'Bebas Neue', sans-serif;
+	--font-base: 'Open Sans', sans-serif;
+	--font-script: 'Corinthia', cursive;
+}
+
+
+
+/* základní nastavení, ať je všechno přes celé okno prohlížeče */
+html,
+body,
+#app {
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: var(--font-base);
+	/* background-color: #e5e5e5; */
+	background-image: radial-gradient(circle farthest-corner at 50% 30%, #ffffff 0%, #c0c0c0 100%);
+}
+
+img {
+	display: block;
+}
+
+h1, h2, h3 {
+	font-family: var(--font-title);
+	color: var(--color-red);
+}
+
+
+.content {
+	max-width: 540px;
+	margin: 50px auto;
+	padding: 0 20px;
+}
+
+/* hlavička */
+.header {
+	padding-top: 230px;
+	margin-bottom: 50px;
+	background: url(images/header.svg) no-repeat top center/auto 200px;
+}
+
+.header__title {
+	margin: 0;
+	font-size: 48px;
+	line-height: 1;
+	text-align: center;
+}
+
+
+/* akce na úvodní straně */
+.actions {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.action {
+	min-height: 200px;
+	padding: 30px;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	border: 2px solid var(--color-red);
+	border-radius: 8px;
+}
+
+
+
+.pickup {
+	margin: 0;
+	text-align: center;
+}
+
+.pickup__label {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pickup__code {
+	width: 100%;
+	padding: 20px 30px;
+	margin-bottom: 20px;
+	font-family: var(--font-title);
+	font-size: 60px;
+	text-align: center;
+	color: black;
+	background-color: white;
+	border: 2px solid var(--color-red);
+	border-radius: 8px;
+}
+
+
+/* button */
+.button {
+	padding: 20px 30px;
+	font-family: var(--font-title);
+	font-size: 36px;
+	color: white;
+	background-image: var(--red-gradient);
+	border: 0;
+	border-radius: 8px;
+}
+
+
+
+/* ----------------------------------------- */
+/* přáníčko
+/* ----------------------------------------- */
+
+
+
+/* pozadí */
+.background {
+	position: relative;
+	isolation: isolate;
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #184617;
+}
+
+.background--red {
+	background-image: var(--red-gradient);
+}
+
+.background--green {
+	background-image: var(--green-gradient);
+}
+
+.background--blue {
+	background-image: var(--blue-gradient);
+}
+
+.background--tree {
+	background-image: url(images/backgrounds/tree.jpg);
+}
+
+.background--decorations {
+	background-image: url(images/backgrounds/decorations.jpg);
+}
+
+.background--snow {
+	background-image: url(images/backgrounds/snow.jpg);
+}
+
+
+
+/* sníh */
+.snow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+
+
+/* přáníčko */
+.card {
+	position: relative;
+	width: 450px;
+	height: 450px;
+	perspective: 1000px;
+	transition: transform 1s ease-in-out;
+}
+
+.cover,
+.inside-left,
+.inside-right {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	transition: transform 1s ease-in-out;
+}
+
+
+/* obálka */
+.cover {
+	transform: rotateY(0);
+	z-index: 3;
+	transform-origin: left;
+	background-color: #de0000;
+}
+
+.card--red .cover {
+	background-image: var(--red-gradient);
+}
+
+.card--green .cover {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .cover {
+	background-image: var(--blue-gradient);
+}
+
+
+.cover__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* vnitřek - levá strana */
+.inside-left {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 50px;
+	left: -450px;
+	background-color: #de0000;
+	transform: rotateY(180deg);
+	z-index: 1;
+	transform-origin: right;
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card--red .inside-left {
+	background-image: var(--red-gradient);
+}
+
+.card--green .inside-left {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .inside-left {
+	background-image: var(--blue-gradient);
+}
+
+.text {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-script);
+	font-size: 48px;
+	line-height: 1.1;
+	text-align: center;
+	color: white;
+}
+
+.logo {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	width: 120px;
+	height: auto;
+	transform: translateX(-50%);
+}
+
+
+/* --- prava vnitrni strana pranicka (kde jsou rozhazene 4 fotky)--- */
+.inside-right {
+	background-color: white;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.photo {
+	position: absolute;
+	width: 320px;
+	height: 240px;
+	padding: 5px;
+	background: beige;
+	box-shadow: 1px 2px 7px 3px rgba(0, 0, 0, 0.3);
+	transition: transform 1s ease-in-out;
+	transform: translate(0, 0) rotate(0);
+	z-index: 2;
+}
+
+.photo img {
+	width: 100%;
+	height: 100%;
+}
+
+.photo1 {
+	left: 50px;
+	top: 30px;
+	transform: translate(0, 0) rotate(3deg);
+}
+
+.photo2 {
+	left: 100px;
+	top: 80px;
+	transform: translate(0, 0) rotate(-3deg);
+}
+
+.photo3 {
+	left: 40px;
+	top: 160px;
+	transform: translate(0, 0) rotate(-1deg);
+}
+
+.photo4 {
+	left: 110px;
+	top: 120px;
+	transform: translate(0, 0) rotate(-7deg);
+}
+
+
+
+/* otevřené přáníčko */
+.card--open {
+	transform: translateX(225px);
+}
+
+.card--open .cover {
+	transform: rotateY(-180deg);
+}
+
+.card--open .inside-left {
+	transform: rotateY(0);
+}
+
+.card--open .photo1 {
+	transform: translate(-30px, -80px) rotate(-9deg);
+}
+
+.card--open .photo2 {
+	transform: translate(170px, -45px) rotate(12deg);
+}
+
+.card--open .photo3 {
+	transform: translate(150px, 100px) rotate(-10deg);
+}
+
+.card--open .photo4 {
+	transform: translate(-160px, 60px) rotate(3deg);
+}

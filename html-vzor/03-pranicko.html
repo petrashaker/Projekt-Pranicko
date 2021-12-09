@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vánoční přání</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+	<!-- ↑↑↑ tenhle div do Reactu nedávej, až to pod ním-->
+
+
+
+		<!--
+			Tenhle div představuje pozadí celé stránky za přáníčkem.
+			Můžeš na něj přidat jednu z následujících tříd pro varianty pozadí:
+			.background--red, .background--green, .background--blue,
+			.background--tree, .background--decorations, .background--snow
+		 -->
+		<div class="background">
+
+			<div class="snow">
+				<!--
+					Sem vložíš sníh, když budeš chtít.
+					Nainstaluj si do projektu tuhle knihovnu:
+					https://www.npmjs.com/package/react-snowfall
+					A pak vlož komponentu podle dokumentace.
+				-->
+			</div>
+
+
+			<!--
+				Na tenhle div půjde kliknout, což by mělo otevřít/zavřít přáníčko.
+
+				Stačí na něj přidat třídu .card--open a otevře se.
+				Když ji odebereš, tak se zase zavře.
+
+				Přidáním jedné z následujících tříd nastavíš barvu pozadí obálky a levé strany uvnitř
+				a také barvu textu uvnitř.
+				.card--red, .card--green, .card--blue
+
+				Takže otevřená modrá kartička bude:
+				<div class="card card--blue card--open">
+			 -->
+			<div class="card">
+
+				<!-- Vnější obálka -->
+				<div class="cover">
+					<img class="cover__image" src="images/covers/gifts.svg">
+				</div>
+
+				<!-- Levá vnitřní strana -->
+				<div class="inside-left">
+					<div class="text">
+						Šťastné a veselé<br>Vánoce!
+					</div>
+					<img class="logo" src="images/czechitas.svg" alt="Czechitas">
+				</div>
+
+				<!-- Pravá vnitřní strana -->
+				<div class="inside-right">
+					<div class="photo photo1"><img src="images/photos/photo1.jpg"></div>
+					<div class="photo photo2"><img src="images/photos/photo2.jpg"></div>
+					<div class="photo photo3"><img src="images/photos/photo3.jpg"></div>
+					<div class="photo photo4"><img src="images/photos/photo4.jpg"></div>
+				</div>
+
+			</div><!-- konec .card -->
+
+		</div><!-- konec .background -->
+
+
+
+
+	<!-- ↓↓↓ tohle už do Reactu nedávej -->
+	</div>
+
+</body>
+</html>
