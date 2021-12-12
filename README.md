@@ -1,6 +1,6 @@
 # Projekt Přáníčko
 
-Naprogramuj aplikaci, ve které si budou uživatelé vytvořit svoje vánoční přáníčko a někomu ho poslat.
+Naprogramuj aplikaci, ve které si budou moci uživatelé vytvořit svoje vánoční přáníčko a někomu ho poslat.
 
 * [Jak má aplikace fungovat](#jak-má-aplikace-fungovat)
 * [Úvodní instrukce](#úvodní-instrukce)
@@ -26,20 +26,20 @@ Celou aplikaci tvoří 5 stránek:
 
 1. Úvodní stránka - [screenshot](screenshots/01-uvod.jpg)
 2. Formulář pro vytvoření přáníčka - [screenshot](screenshots/02-vytvorit.jpg)
-3. Zobrazení kódu po vytvoření přáníčka- [screenshot](screenshots/04-hotovo.jpg)
+3. Zobrazení kódu po úspěšném uložení přáníčka- [screenshot](screenshots/04-hotovo.jpg)
 4. Vyzvednutí přáníčka pomocí kódu - [screenshot](screenshots/03-vyzvednout.jpg)
-5. Přáníčko - [zavřené](screenshots/05-prani-zavrene.jpg) / [otevřené](screenshots/06-prani-otevrene.jpg) (po kliknutí na přání)
+5. Přáníčko - [zavřené](screenshots/05-prani-zavrene.jpg) / [otevřené (po kliknutí na obálku)](screenshots/06-prani-otevrene.jpg)
 
 
-Každý může na stránku přijít a vytvořit si vlastní přáníčko - vybere si barvu pozadí, barvu přáníčka, obrázek na obálce, intenzitu sněžení na pozadí, hudbu (hraje po oteření přáníčka), a samozřejmě text věnování a svůj podpis.
+Každý může na stránku přijít a vytvořit si vlastní přáníčko - vybere si barvu pozadí, barvu přáníčka, obrázek na obálce, intenzitu sněžení na pozadí, hudbu (hraje po otevření přáníčka), a samozřejmě text věnování a svůj podpis.
 
-Data z formuláře se odešlou na server (viz sekce o API) na server, který je uloží do databáze a zpět nám pošle unikátní šestimístný kód přáníčka.
+Data z formuláře se odešlou na server (viz sekce o API), který je uloží do databáze a zpět nám pošle unikátní šestimístný kód přáníčka.
 
-Tento kód jde buď zadat do stránky pro vyzvednutí přáníčka a nebo ho použít jako součást odkazu, který vede přímo na přáníčko - např. `https://tvuj-web.cz/card/abc123`
+Tento kód jde buď zadat do stránky pro vyzvednutí přáníčka a nebo ho použít jako součást odkazu, který vede přímo na přáníčko - např. `https://tvuj-web.cz/card/abc123`.
 
 Když návštěvník zadá na stránce kód nebo klikne na odkaz, který na přáníčko vede přímo, zobrazí se mu zavřené přáníčko. Po kliknutí na přáníčko začne hrát hudba a přáníčko se otevře.
 
-Pro jednotlivé stránky si vytvoř cesty v routeru. Pro prohlížení konkrétního přáníčka udělej cestu `/card/abc123`, kde `abc123` je `id` uloženého přáníčka.
+Pro jednotlivé stránky si vytvoř cesty v routeru. Pro prohlížení konkrétního přáníčka udělej cestu `/card/abc123`, kde `abc123` je `id` (kód) uloženého přáníčka.
 
 ---
 
@@ -58,9 +58,9 @@ Ve složce `html-vzor` máš připravený kompletní HTML a CSS kód pro všechn
 
 * Rozsekej HTML na části a udělej z nich vhodné komponenty.
 * Zkopíruj CSS do projektu a připoj do hlavní `App`.
-* Pro zjednodušení bych ti tentokrát doporučil, abys nechala CSS v jednom kuse a nesnažila se ho rozdělit k jednotlivým komponentám. CSS je dlouhé a složité a ne vždy je jasné, ke které komponentě bys ho měla přidat. Nech si to jako bonus na závěr, když na to budeš mít na konci ještě chuť.
-* Do projektu si budeš muset přesunout obrázky a audio. Jak obrázky tak hudbu můžeš importovat do komponent a pak s nimi prcovat jako s proměnnými. Nebo si můžeš uvnitř `src` vytvořit složku `assets` a soubory dát tam a potom k nim přistupovat přes přímou adresu relativí ke kořeni celého projektu.
-* **POZOR:** ať s obrázky uděláš cokoliv, budeš muset v CSS přepsat cesty k obrázkům. Jsou tam na hodně místech - musíš je upravit všude podle toho, kam si obrázky do projektu přesuneš.
+* Pro zjednodušení bych ti tentokrát doporučil, abys nechala CSS v jednom kuse a nesnažila se ho rozdělit k jednotlivým komponentám. CSS je dlouhé a složité a ne vždy je jasné, ke které komponentě bys který kousek měla přidat. Nech si to jako bonus na závěr, když se ti do toho ještě budeš chtít, až bude celá aplikace fungovat.
+* Do projektu si budeš muset přesunout obrázky a audio. Jak obrázky tak hudbu můžeš importovat do komponent a pak s nimi prcovat jako s proměnnými. Nebo si můžeš uvnitř `src` vytvořit složku `assets` (to je ta, co se 1:1 kopíruje do sestavené aplikace) a soubory dát tam a potom k nim přistupovat přes přímou adresu relativní ke kořové složce sestavené aplikace.
+* **POZOR:** ať s obrázky uděláš cokoliv, budeš muset v CSS přepsat cesty k obrázkům. Jsou tam na více místech - musíš je upravit všude podle toho, kam si obrázky do projektu přesuneš.
 
 ---
 
@@ -70,10 +70,10 @@ Ve složce `src` je soubor `configuration.js`. Bude se ti hodit při programová
 
 Například sekce *music* v konfiguračním souboru vypadá takto:
 ```js
-// hudba
-{
+export const configuration = {
   ...,
 
+  // hudba
   music: [
     {
       value: 'jingle-bells',
@@ -92,9 +92,9 @@ Například sekce *music* v konfiguračním souboru vypadá takto:
 }
 ```
 
-Pomocí těchto dat vytvoříš do formuláře 3 přepínače, u kterých bude napsáno `Roličky, rolničky`, `Tichá noc` a `Pokoj Vám`. Podle vybrané položky se pak na server odešle hodnota `jingle-bells`, `silent-night` nebo `god-rest`.
+Pomocí těchto dat a mapování můžeš ve formuláři vytvořit 3 přepínače, u kterých bude napsáno `Roličky, rolničky`, `Tichá noc` a `Pokoj Vám`. Podle toho, jakou volbu na stránce zaškrtneš, se pak na server odešle hodnota `jingle-bells`, `silent-night` nebo `god-rest`.
 
-Hodnotu z `value` použiješ také pro vytvoření jedinečných ID pro formulářové prvky (viz. HTML vzor). Všimni si, kde všude je napsáno `jingle-bells`:
+Hodnotu z `value` použij také pro vytvoření jedinečných ID pro formulářové prvky (viz. HTML vzor). Všimni si, kde všude je napsáno `jingle-bells` a kde naopak ne (více v [tipech na závěr](#tipy-na-závěr)):
 ```html
 <div class="field__radio">
   <input type="radio" name="music" id="music-jingle-bells" checked>
@@ -156,7 +156,7 @@ https://xmas-api.itgirls.cz/cards
 
 Pokud by se při uložení něco nepovedlo nebo bys na server poslala nekompletní data (všechna pole jsou povinná), server ti místo kódu přáníčka pošle chyby.
 
-Zda se dotaz povedl, poznáš podle hodnoty vlastnosti `success`, která je buď `true` nebo `false`.
+Zda se uložení povedlo, poznáš podle hodnoty vlastnosti `success`, která je buď `true` nebo `false`.
 
 ```json
 {
@@ -176,15 +176,25 @@ V kurzu jsme si neukazovali, jak se data na server posílají, ale je to jednodu
 
 Data se na server posílají jako JSON. Ty si v programu poskládáš normální javascriptový objekt a do těla dotazu ho převedeš na JSON pomocí funkce `JSON.stringify()`.
 
-Fetch pro odeslání dat na server bude vzpadat t5eba takto:
+Fetch pro odeslání dat na server bude vypadat třeba takto:
 
 ```js
+const tohleChciPoslatNaServer = {
+  background: 'green',
+  color: 'red',
+  cover: 'gifts',
+  music: 'jingle-bells',
+  snow: 1,
+  text: 'Text vánočního přání',
+  sender: 'Alena'
+};
+
 fetch('https://xmas-api.itgirls.cz/cards', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify( mujObjektKteryChciPoslat )
+  body: JSON.stringify( tohleChciPoslatNaServer )
 })
 .then(response => response.json())
 .then(data => {
@@ -200,7 +210,7 @@ fetch('https://xmas-api.itgirls.cz/cards', {
 
 Pokud hudbu u přáníčka nechceš, klidně tento krok vynech. Když ale hudbu vynecháš, někde na světě umře koťátko, tak si to dobře rozmysli!
 
-Nebudeme zabíhat do zbytečných podrobností (více v React 2!). V projektu je pro tebe připravený custom hook, který se o přehrávání hudby postará. Ty ho musíš jen použít.
+V projektu je pro tebe připravený custom hook, který se o přehrávání hudby postará. Ty ho musíš jen použít. Nebudeme zabíhat do zbytečných podrobností - co je to custom hook a jak je vytvářet, si ukážeme v "React 2".
 
 Hook najdeš v souboru `src/hooks/useAudio.jsx`. Do komponenty, kde chceš přehrávat hudbu, si ho musíš naimportovat:
 ```jsx
@@ -214,9 +224,9 @@ const [isPlaying, play, pause] = useAudio('cesta-k-hudbe.mp3');
 ```
 
 Hook vrátí 3 věci:
-- `isPlaying` je `true` nebo `false`, podle toho, zda hudba zrovna hraje nebo ne
-- `play` je funkce, kterou hudbu spustíš
-- `pause` je funkce, kterou hudbu zastavíš
+- `isPlaying` je `true` nebo `false`, můžeš to použít pro různé účely, kde potřebuješ něco rozhodnout nebo zobrazit, podle toho, zda hudba právě hraje nebo ne
+- `play` je funkce, pomocí které spustíš audio soubor, který jsi uvedla do parametru hooku
+- `pause` je funkce, pomocí které přehrávání zvuku zastavíš
 
 Celé použití pak vypadá třeba takto:
 ```jsx
@@ -235,8 +245,9 @@ const komponenta = () => {
 
   return (
     <>
-      <button onClick={handlePlayClick}> Spustit hudbu </button>
-      <button onClick={handlePauseClick}> Zastavit </button>
+      <p>Hudba právě { isPlaying ? 'hraje' : 'nehraje' }.</p>
+      <button onClick={handlePlayClick}>Spustit hudbu</button>
+      <button onClick={handlePauseClick}>Zastavit</button>
     </>
   )
 }
@@ -249,7 +260,7 @@ const komponenta = () => {
 
 V NPM existuje boží knihovna `react-snowfall`, kterou si do projektu můžeš jednoduše přidat sněžení.
 
-Jednoduchou dokumentaci ke knihovně a živou ukázku najdeš v jejích [GitHub repozitáři](https://github.com/cahilfoley/react-snowfall).
+Jednoduchou dokumentaci ke knihovně a živou ukázku najdeš v jejím [GitHub repozitáři](https://github.com/cahilfoley/react-snowfall).
 
 Stačí do projektu nainstalovat pomocí:
 ```
@@ -270,6 +281,8 @@ Pokud chceš nastavit množství vloček, můžeš pomocí props:
 ```jsx
 <Snowfall snowflakeCount={200} />
 ```
+
+V HTML vzoru má sněžení vyhrazené svoje speciální místo. Přidej ho právě tam a nikam jinam.
 
 ---
 
