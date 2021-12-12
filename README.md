@@ -72,20 +72,20 @@ Například sekce *music* v konfiguračním souboru vypadá takto:
 {
   ...,
 
-	music: [
-		{
-			value: 'jingle-bells',
-			description: 'Rolničky, rolničky',
-		},
-		{
-			value: 'silent-night',
-			description: 'Tichá noc',
-		},
-		{
-			value: 'god-rest',
-			description: 'Pokoj Vám',
-		},
-	],
+  music: [
+    {
+      value: 'jingle-bells',
+      description: 'Rolničky, rolničky',
+    },
+    {
+      value: 'silent-night',
+      description: 'Tichá noc',
+    },
+    {
+      value: 'god-rest',
+      description: 'Pokoj Vám',
+    },
+  ],
 
 }
 ```
