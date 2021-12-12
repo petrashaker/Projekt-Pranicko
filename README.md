@@ -277,9 +277,9 @@ Pokud chceš nastavit množství vloček, můžeš pomocí props:
 
 * Projekt je nakonec docela složitý, nesnaž se udělat všechno najednou, ale postupuj po částech a vždy si ověř, že daný kus funguje.
 * Rozděl si funkčnost do pokud možno malých komponent - například nědělej formulář pro vytváření přáníčka jako jednu masivní komponentu, ve které je všechno, ale rozděl si ho třeba na komponentu pro výběr pozadí, druhou pro výběr barvy, atd.
-* I tyto dílčí komponenty se mohou skládat z dalších komponent - např. samostatná komponenta pro jeden vzorek barvy.¨
+* I tyto dílčí komponenty se mohou skládat z dalších komponent - např. samostatná komponenta pro jeden vzorek barvy.
 * Budeš muset vyřešit komunikaci mezi komponentami s právné přdávání props, ale pokud to uděláš správně, zjednoduší ti to celý kód.
-* Při převodu HTML vzoru na komponenty si dej pozor na značky, které v HTML nemusí výt uzavřené, ale JSX to vyžaduje. Např. z `<input>` budeš muset udělat `<input />` (lomítko na konci).
+* Při převodu HTML vzoru na komponenty si dej pozor na značky, které v HTML nemusí být uzavřené, ale JSX to vyžaduje. Např. z `<input>` budeš muset udělat `<input />` (lomítko na konci).
 * Při tvorbě prvků ve formuláři dej pozor na to, jak v HTML fungují radio buttony. Aby fungovaly správně (tj. šel vybrat vždy jenom jeden z nich), musí mít každý z nich unikátní hodnotu atributu `id`, ale celá skupina musí mít stejnou hodnotu atributu `name`.
 * Největší a úplně nejlepší tip jsem si schoval na konec: kurz skončil, ale stále se můžeš ptát na Slacku! :)
 
