@@ -5,14 +5,14 @@ Naprogramuj aplikaci, ve které si budou uživatelé vytvořit svoje vánoční 
 * [Jak má aplikace fungovat](#jak-má-aplikace-fungovat)
 * [Úvodní instrukce](#úvodní-instrukce)
 * [HTML vzor](#html-vzor)
-* [Konfigurační soubor](#konfiguracni-soubor)
+* [Konfigurační soubor](#konfigurační-soubor)
 * [Serverové API](#serverové-api)
   - [GET - Získat údaje konkrétního přáníčka](#get---získat-údaje-konkrétního-přáníčka)
   - [POST - Uložit vytvořené přání do databáze](#post---uložit-vytvořené-přání-do-databáze)
 * [Jak posílat data na server](#jak-posílat-data-na-server)
 * [Jak přehrávat hudbu](#jak-přehrávat-hudbu)
 * [Jak do projektu přidat sníh](#jak-do-projektu-přidat-sníh)
-* [Tipy na závěr](#tipy-na-zaver)
+* [Tipy na závěr](#tipy-na-závěr)
 
 
 
