@@ -22,7 +22,7 @@ Naprogramuj aplikaci, ve které si budou uživatelé vytvořit svoje vánoční 
 
 ## Jak má aplikace fungovat
 
-Celou aplikace tvoří 5 stránek:
+Celou aplikaci tvoří 5 stránek:
 
 1. Úvodní stránka - [screenshot](screenshots/01-uvod.jpg)
 2. Formulář pro vytvoření přáníčka - [screenshot](screenshots/02-vytvorit.jpg)
@@ -38,6 +38,8 @@ Data z formuláře se odešlou na server (viz sekce o API) na server, který je 
 Tento kód jde buď zadat do stránky pro vyzvednutí přáníčka a nebo ho použít jako součást odkazu, který vede přímo na přáníčko - např. `https://tvuj-web.cz/card/abc123`
 
 Když návštěvník zadá na stránce kód nebo klikne na odkaz, který na přáníčko vede přímo, zobrazí se mu zavřené přáníčko. Po kliknutí na přáníčko začne hrát hudba a přáníčko se otevře.
+
+Pro jednotlivé stránky si vytvoř cesty v routeru. Pro prohlížení konkrétního přáníčka udělej cestu `/card/abc123`, kde `abc123` je `id` uloženého přáníčka.
 
 ---
 
