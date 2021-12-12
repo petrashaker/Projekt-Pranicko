@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vánoční přání</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+	<!-- ↑↑↑ tenhle div do Reactu nedávej, až to pod ním-->
+
+
+	<nav class="menu">
+		<a class="menu__link" href="01-uvod.html">Úvod</a>
+		<a class="menu__link menu__link--active" href="02-vytvorit.html">Vytvořit přáníčko</a>
+		<a class="menu__link" href="03-vyzvednout.html">Vyzvednout</a>
+	</nav>
+
+
+	<div class="header">
+		<h1 class="header__title">Přáníčko je připravené</h1>
+	</div>
+
+
+	<main class="content">
+
+		<div class="pickup">
+
+			<p class="pickup__label">Přímý odkaz na přáníčko</p>
+
+			<div class="box shadow mb-30">
+				<div class="box__inside pt-0 pb-0">
+					<a href="https://tvuj-web.cz/card/abc123" class="pickup__url">https://tvuj-web.cz/card/abc123</a>
+					<p class="pickup__description">
+						Tento odkaz pošli emailem, přes messenger nebo ho dej na sociální sítě. Po kliknutí na odkaz se zobrazí tvoje přáníčko.
+					</p>
+				</div>
+			</div>
+
+
+			<p class="pickup__label">Kód tvého přáníčka</p>
+
+			<div class="box shadow mb-30">
+				<div class="box__inside pt-0 pb-0">
+					<div class="pickup__code">ABC123</div>
+					<p class="pickup__description">
+						S tímto kódem si kdokoliv může vyzvednout tvoje uložené přáníčko. Hodí se, když chceš přáníčko poslat třeba SMSkou a nechceš opisovat celou adresu.
+					</p>
+				</div>
+			</div>
+
+			<button class="button button--big">Vytvořit další přáníčko</button>
+
+		</div>
+
+	</main>
+
+
+	<!-- ↓↓↓ tohle už do Reactu nedávej -->
+</div>
+</body>
+</html>
+
+

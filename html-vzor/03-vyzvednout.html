@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vánoční přání</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+	<!-- ↑↑↑ tenhle div do Reactu nedávej, až to pod ním-->
+
+
+	<nav class="menu">
+		<a class="menu__link" href="01-uvod.html">Úvod</a>
+		<a class="menu__link" href="02-vytvorit.html">Vytvořit přáníčko</a>
+		<a class="menu__link menu__link--active" href="03-vyzvednout.html">Vyzvednout</a>
+	</nav>
+
+
+	<div class="header">
+		<h1 class="header__title">Vyzvednout přáníčko</h1>
+	</div>
+
+
+	<main class="content">
+
+		<form class="pickup" autocomplete="off">
+			<label for="pickup-code" class="pickup__label">Zadej šestimístný kód přáníčka</label>
+
+			<div class="box shadow mb-30">
+				<div class="box__inside pt-0 pb-0">
+
+					<input id="pickup-code" class="pickup__code" type="text" maxlength="6" autocomplete="off">
+
+				</div>
+			</div>
+
+			<button class="button button--big">Vyzvednout přáníčko</button>
+
+		</form>
+
+	</main>
+
+
+	<!-- ↓↓↓ tohle už do Reactu nedávej -->
+</div>
+</body>
+</html>
+
+

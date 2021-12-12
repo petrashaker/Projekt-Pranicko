@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vánoční přání</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+	<!-- ↑↑↑ tenhle div do Reactu nedávej, až to pod ním-->
+
+
+		<nav class="menu">
+			<a class="menu__link" href="01-uvod.html">Úvod</a>
+			<a class="menu__link menu__link--active" href="02-vytvorit.html">Vytvořit přáníčko</a>
+			<a class="menu__link" href="03-vyzvednout.html">Vyzvednout</a>
+		</nav>
+
+
+		<header class="header">
+			<h1 class="header__title">Vytvořit přáníčko</h1>
+		</header>
+
+
+		<main class="content">
+
+			<div class="box">
+				<div class="box__inside">
+
+					<form class="configurator">
+
+						<!-- pozadí stránky	-->
+						<div class="field">
+							<label class="field__label">Pozadí stránky</label>
+
+							<div class="field__swatch-group field__swatch-group--round">
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-red" checked>
+									<label for="background-red" class="swatch--red" data-description="červená"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-green">
+									<label for="background-green" class="swatch--green" data-description="zelená"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-blue">
+									<label for="background-blue" class="swatch--blue" data-description="modrá"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-gold">
+									<label for="background-gold" class="swatch--gold" data-description="zlatá"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-tree">
+									<label for="background-tree" class="swatch--tree" data-description="stromeček"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-decorations">
+									<label for="background-decorations" class="swatch--decorations" data-description="ozdoby"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="background" id="background-snow">
+									<label for="background-snow" class="swatch--snow" data-description="sníh"></label>
+								</div>
+
+							</div>
+
+						</div>
+
+
+						<!-- barva přáníčka	-->
+						<div class="field">
+							<label class="field__label">Barva přáníčka</label>
+
+							<div class="field__swatch-group field__swatch-group--round">
+
+								<div class="field__swatch">
+									<input type="radio" name="color" id="color-red" checked>
+									<label for="color-red" class="swatch--red" data-description="červená"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="color" id="color-green">
+									<label for="color-green" class="swatch--green" data-description="zelená"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="color" id="color-blue">
+									<label for="color-blue" class="swatch--blue" data-description="modrá"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="color" id="color-gold">
+									<label for="color-gold" class="swatch--gold" data-description="zlatá"></label>
+								</div>
+
+							</div>
+
+						</div>
+
+
+						<!-- obrázek na obálce	-->
+						<div class="field">
+							<label class="field__label">Obrázek na obálce</label>
+
+							<div class="field__swatch-group field__swatch-group--big">
+
+								<div class="field__swatch">
+									<input type="radio" name="cover" id="cover-gifts" checked>
+									<label for="cover-gifts" class="swatch--cover-gifts" data-description="dárečky"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="cover" id="cover-decorations">
+									<label for="cover-decorations" class="swatch--cover-decorations" data-description="ozdoby"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="cover" id="cover-snowflakes">
+									<label for="cover-snowflakes" class="swatch--cover-snowflakes" data-description="vločky"></label>
+								</div>
+
+								<div class="field__swatch">
+									<input type="radio" name="cover" id="cover-trees">
+									<label for="cover-trees" class="swatch--cover-trees" data-description="stromečky"></label>
+								</div>
+
+							</div>
+
+						</div>
+
+
+						<!-- intenzita sněžení na pozadí	-->
+						<div class="field">
+							<label class="field__label ">Sníh na pozadí</label>
+
+							<div class="field__radio-group">
+								<div class="field__radio">
+									<input type="radio" name="snow" id="snow-0" checked>
+									<label for="snow-0">bez sněhu</label>
+								</div>
+
+								<div class="field__radio">
+									<input type="radio" name="snow" id="snow-1">
+									<label for="snow-1">málo</label>
+								</div>
+
+
+								<div class="field__radio">
+									<input type="radio" name="snow" id="snow-2">
+									<label for="snow-2">hodně</label>
+								</div>
+							</div>
+						</div>
+
+
+						<!-- hudba	-->
+						<div class="field">
+							<label class="field__label">Hudba</label>
+
+							<div class="field__radio-group">
+								<div class="field__radio">
+									<input type="radio" name="music" id="music-jingle-bells" checked>
+									<label for="music-jingle-bells">Rolničky, roličky</label>
+								</div>
+
+								<div class="field__radio">
+									<input type="radio" name="music" id="music-silent-night">
+									<label for="music-silent-night">Tichá noc</label>
+								</div>
+
+
+								<div class="field__radio">
+									<input type="radio" name="music" id="music-god-rest">
+									<label for="music-god-rest">Pokoj Vám</label>
+								</div>
+							</div>
+						</div>
+
+
+						<!-- text	-->
+						<div class="field">
+							<label class="field__label" for="text">Text uvnitř přáníčka</label>
+							<textarea class="field__input" name="text" id="text" rows="3" maxlength="100" autocomplete="off"></textarea>
+							<p class="field__description">Zbývá <strong>37</strong>/100 znaků.</p>
+						</div>
+
+
+						<!-- odesílatel	-->
+						<div class="field">
+							<label class="field__label" for="sender">Odesílatel (podpis)</label>
+							<input class="field__input" type="text" name="sender" id="sender" rows="3" maxlength="20" autocomplete="off">
+						</div>
+
+
+						<!-- tlačítko pro odeslání -->
+						<button type="submit" class="button button--big mt-30">Uložit přáníčko</button>
+
+					</form>
+
+				</div>
+			</div>
+
+		</main>
+
+
+
+
+	<!-- ↓↓↓ tohle už do Reactu nedávej -->
+</div>
+</body>
+</html>

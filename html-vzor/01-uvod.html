@@ -11,32 +11,47 @@
 	<div id="app">
 	<!-- ↑↑↑ tenhle div do Reactu nedávej, až to pod ním-->
 
+		<nav class="menu">
+			<a class="menu__link menu__link--active" href="01-uvod.html">Úvod</a>
+			<a class="menu__link" href="02-vytvorit.html">Vytvořit přáníčko</a>
+			<a class="menu__link" href="03-vyzvednout.html">Vyzvednout</a>
+		</nav>
 
-		<header class="header">
+
+		<div class="header">
 			<h1 class="header__title">Vánoční přáníčko</h1>
-		</header>
-
-
-		<div class="content">
-
-
-			<div class="actions">
-
-				<a class="action" href="#">
-					<h2>Vytvořit přáníčko</h2>
-					<p>Vytvoř si nové vánoční přáníčko na míru.</p>
-				</a>
-
-				<a class="action" href="#">
-					<h2>Vyzvednout přáníčko</h2>
-					<p>Vyzvedni si přáníčko, ke kterému ti někdo poslal kód.</p>
-				</a>
-
-			</div>
-
-
 		</div>
 
+
+		<main class="actions">
+
+			<a class="action shadow" href="#">
+				<div class="action__inside">
+					<div class="action__decoration"></div>
+					<div class="action__content">
+						<h2 class="action__title">
+							<span class="laurels">Vytvořit</span>
+							vánoční přáníčko
+						</h2>
+						<p class="action__description">Vytvoř si přáníčko na míru a&nbsp;pošli ho svým blízkým.</p>
+					</div>
+				</div>
+			</a>
+
+			<a class="action shadow" href="#">
+				<div class="action__inside">
+					<div class="action__decoration"></div>
+					<div class="action__content">
+						<h2 class="action__title">
+							<span class="laurels">Vyzvednout</span>
+							vánoční přáníčko
+						</h2>
+						<p class="action__description">Zadej kód a vyzvedni si svoje vánoční přáníčko.</p>
+					</div>
+				</div>
+			</a>
+
+		</main>
 
 
 
