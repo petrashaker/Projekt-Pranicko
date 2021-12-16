@@ -1,29 +1,828 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+/* fonty */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:wght@500&family=Source+Sans+3:wght@300;400;700&display=swap');
 
-* {
-  box-sizing: border-box;
+
+/* magie a jednorožci */
+html { box-sizing: border-box; }
+*, *::after, *::before { box-sizing: inherit; }
+
+
+:root {
+	--font-base: 'Source Sans 3', sans-serif;
+	--font-title: 'Playfair Display', serif;
+	--font-script: 'Caveat', cursive;
+
+	--color-red: #a1262a;
+	--color-red-active: #791e21;
+
+	--color-blue: #1a202b;
+	--color-blue-active: #2a3d5f;
+
+	--color-gold: #a98343;
+	--color-gold-active: #856734;
+
+	--color-bg1: #dbd6cc;
+	--color-bg2: #c5ae81;
+
+	--red-gradient: radial-gradient(circle farthest-corner, #de0000 0%, #6c0000 100%);
+	--green-gradient: radial-gradient(circle farthest-corner, #61a431 0%, #184617 100%);
+	--blue-gradient: radial-gradient(circle farthest-corner, #0059de 0%, #012064 100%);
+	--gold-gradient: radial-gradient(circle farthest-corner, #fed17d 0%, #bf7b2a 100%);
 }
 
-html {
-  font-family: 'Open Sans', sans-serif;
+
+/* základní nastavení, ať je všechno přes celé okno prohlížeče */
+html,
+body,
+#app {
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
-.container {
-  max-width: 26rem;
-  margin-right: auto;
-  margin-left: auto;
+body {
+	font-family: var(--font-base);
+	background-color: var(--color-bg);
+	background:
+		url(assets/bg.svg) repeat-x bottom center/1200px 150px,
+		radial-gradient(circle farthest-corner at 50% 0%, var(--color-bg1) 50%, var(--color-bg2) 100%);
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
+img {
+	display: block;
 }
 
-.logo {
-  width: 10rem;
-  height: 10rem;
-  background-image: url(./img/rocket.svg);
-  background-size: contain;
+h1, h2, h3 {
+	font-family: var(--font-title);
+	font-weight: 500;
+	color: var(--color-red);
+}
+
+
+/* ----------------------------------------------- */
+/* tlacitko */
+/* ----------------------------------------------- */
+
+.button {
+	padding: 10px 20px;
+	font-family: var(--font-title);
+	font-size: 18px;
+	font-weight: 500;
+	color: white;
+	border: 0;
+	background-color: var(--color-blue);
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: var(--color-blue-active);
+}
+
+.button--big {
+	padding: 15px 30px;
+	font-size: 28px;
+}
+
+.button--gold 			{	background-color: var(--color-gold); }
+.button--gold:hover	{	background-color: var(--color-gold-active); }
+
+.button--blue 			{	background-color: var(--color-blue); }
+.button--blue:hover	{	background-color: var(--color-blue-active); }
+
+.button--red  			{	background-color: var(--color-red); }
+.button--red:hover	{	background-color: var(--color-red-active); }
+
+
+
+/* ----------------------------------------------- */
+/* box */
+/* ----------------------------------------------- */
+.box {
+	padding: 10px;
+	background-color: white;
+}
+
+.box__inside {
+	border: 1px solid var(--color-gold);
+	padding: 30px;
+}
+
+
+/* ----------------------------------------------- */
+/* omezeni sirky obsahu */
+/* ----------------------------------------------- */
+.content {
+	max-width: 540px;
+	margin: 50px auto;
+}
+
+
+/* ----------------------------------------------- */
+/* ozdoby */
+/* ----------------------------------------------- */
+
+/* laurels */
+.laurels::before,
+.laurels::after {
+	content: "";
+	display: inline-block;
+	height: 0.7em;
+	width: 1.4em;
+	transform: translateY(0.1em);
+	background: no-repeat top left/contain;
+}
+
+.laurels::before {
+	background-image: url(assets/vetvicka-vlevo.svg);
+	margin-right: 0.1em;
+}
+
+.laurels::after {
+	background-image: url(assets/vetvicka-vpravo.svg);
+	margin-left: 0.1em;
+}
+
+/* shadow */
+.shadow {
+	position: relative;
+	box-shadow:1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.shadow::before,
+.shadow::after {
+	content: "";
+	display: block;
+	width: 50%;
+	max-width: 300px;
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	top: 80%;
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+	transform: rotate(-3deg);
+	z-index: -1;
+}
+
+.shadow::after {
+	left: auto;
+	right: 10px;
+	transform: rotate(3deg);
+}
+
+
+
+/* ----------------------------------------------- */
+/* menu */
+/* ----------------------------------------------- */
+.menu {
+	display: flex;
+	justify-content: center;
+	margin: 10px auto 50px auto;
+}
+
+.menu__link {
+	display: block;
+	padding: 10px;
+	font-family: var(--font-title);
+	font-size: 18px;
+	text-decoration: none;
+	color: var(--color-blue);
+}
+
+.menu__link:hover {
+	color: var(--color-gold);
+}
+
+.menu__link--active {
+	border-bottom: 2px solid var(--color-gold);
+}
+
+
+
+/* ----------------------------------------------- */
+/* hlavicka */
+/* ----------------------------------------------- */
+
+.header {
+	margin: 50px 0;
+}
+
+.header__title {
+	margin: 0 auto;
+	font-size: 48px;
+	line-height: 1;
+	text-align: center;
+	color: var(--color-gold);
+}
+
+
+
+/* ----------------------------------------------- */
+/* tlačítka na úvodní stránce */
+/* ----------------------------------------------- */
+
+.actions {
+	max-width: 540px;
+	margin: 50px auto;
+}
+
+.action {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	text-decoration: none;
+	background-color: white;
+	color: var(--color-blue);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.action:hover {
+	background-color: var(--color-gold);
+}
+
+.action + .action {
+	margin-top: 30px;
+}
+
+.action__inside {
+	display: grid;
+	grid-auto-flow: dense;
+	grid-template-columns: 1fr 1fr;
+	min-height: 180px;
+	text-align: center;
+	color: black;
+	background-color: white;
+	border: 1px solid var(--color-gold);
+}
+
+.action:nth-child(odd) .action__decoration {
+	background: url(assets/deco1.svg) no-repeat center center/contain;
+	grid-column: 1;
+}
+.action:nth-child(even) .action__decoration {
+	background: url(assets/deco2.svg) no-repeat center center/contain;
+	grid-column: 2;
+}
+
+.action__content {
+	align-self: center;
+	text-align: center;
+}
+
+.action__title {
+	margin: 0 0 20px 0;
+	font-size: 20px;
+	color: var(--color-blue);
+}
+
+.action__title span {
+	display: block;
+	font-size: 30px;
+	font-family: var(--font-script);
+	color: var(--color-gold);
+}
+
+.action__description {
+	max-width: 200px;
+	margin: 0 auto;
+}
+
+
+
+/* ----------------------------------------------- */
+/* formulář pro vyzvednutí přáníčka */
+/* ----------------------------------------------- */
+
+.pickup {
+	margin: 0;
+	text-align: center;
+}
+
+.pickup__label {
+	display: block;
+	font-size: 28px;
+	font-family: var(--font-script) ;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pickup__code,
+.pickup__url {
+	width: 100%;
+	font-family: var(--font-base);
+	line-height: 1;
+	text-align: center;
+	color: var(--color-gold);
+	background-color: white;
+	border: 0;
+	outline: 0;
+}
+
+.pickup__code {
+	font-size: 80px;
+}
+
+div.pickup__code {
+	padding: 20px;
+}
+
+.pickup__url {
+	display: block;
+	padding: 20px;
+	font-size: 30px;
+}
+
+.pickup__url:hover,
+.pickup__url:focus {
+	color: var(--blue);
+}
+
+/* ----------------------------------------- */
+/* formular
+/* ----------------------------------------- */
+
+.field {
+	line-height: 1;
+}
+.field + .field {
+	margin-top: 40px;
+}
+
+.field__label {
+	display: block;
+	margin-bottom: 15px;
+	font-family: var(--font-script);
+	font-size: 28px;
+	color: var(--color-gold);
+}
+
+
+/* input, textarea */
+.field__input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-family: var(--font-base);
+	font-weight: 400;
+	font-size: 20px;
+	color: var(--color-blue);
+	border: 1px solid var(--color-blue);
+	outline-color: var(--color-gold);
+}
+
+/* popisek pod polem */
+.field__description {
+	margin: 10px 0 0 0;
+	font-family: var(--font-base);
+	font-weight: 400;
+	font-size: 14px;
+	color: var(--color-gold);
+}
+
+/* radio button */
+.field__radio {
+	font-family: var(--font-base);
+	font-size: 20px;
+}
+
+.field__radio + .field__radio {
+	margin-top: 10px;
+}
+
+.field__radio input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	text-indent: -9999px;
+	transform: scale(0);
+	opacity: 0;
+}
+
+.field__radio label {
+	display: flex;
+	align-items: center;
+}
+
+.field__radio label::before {
+	content: "";
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-right: 0.5em;
+	border: 2px solid var(--color-gold);
+	border-radius: 50%;
+	box-shadow:
+		inset 0 0 0 4px white,
+		inset 0 0 0 0px white;
+	transition: box-shadow 0.3s;
+	cursor: pointer;
+}
+
+.field__radio input:checked + label::before {
+	/* background-color: var(--color-blue); */
+	box-shadow:
+		inset 0 0 0 4px white,
+		inset 0 0 0 20px var(--color-blue);
+}
+
+.field__radio-group--inline {
+	display: flex;
+	align-items: center;
+}
+
+.field__radio-group--inline .field__radio {
+	margin-top: 0;
+}
+.field__radio-group--inline .field__radio + .field__radio {
+	margin-left: 20px;
+}
+
+
+/* radio button - swatch (vzorek barvy, pozadí, apod.) */
+
+.field__swatch {
+	position: relative;
+}
+
+.field__swatch input {
+	position: absolute;
+	width: 0;
+	height: 0;
+	text-indent: -9999px;
+	transform: scale(0);
+	opacity: 0;
+}
+
+.field__swatch label::before {
+	content: "";
+	display: block;
+	width: 100%;
+	aspect-ratio: 1/1;
+	border: 3px solid white;
+	border-radius: 4px;
+	box-shadow:	inset 0 0 0 2px white;
+	transition: border-color 0.3s;
+	background: no-repeat center center/cover;
+	cursor: pointer;
+}
+
+
+
+.field__swatch input:checked + label::before {
+	border-color: var(--color-gold);
+}
+
+.field__swatch-group {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+	gap: 5px;
+}
+
+.field__swatch-group--small {
+	grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+}
+
+.field__swatch-group--big {
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.field__swatch-group--round .field__swatch label:before {
+	border-radius: 50%;
+}
+
+.field__swatch label.swatch--red::before 					{ background-image: var(--red-gradient); }
+.field__swatch label.swatch--green::before 				{ background-image: var(--green-gradient); }
+.field__swatch label.swatch--blue::before 				{ background-image: var(--blue-gradient); }
+.field__swatch label.swatch--gold::before 				{ background-image: var(--gold-gradient); }
+.field__swatch label.swatch--tree::before 				{ background-image: url(assets/backgrounds/tree.jpg); }
+.field__swatch label.swatch--decorations::before 	{ background-image: url(assets/backgrounds/decorations.jpg); }
+.field__swatch label.swatch--snow::before 				{ background-image: url(assets/backgrounds/snow.jpg); }
+
+.field__swatch label.swatch--cover-gifts::before 	{
+	background-color: var(--color-blue-active);
+	background-image: url(assets/covers/gifts.svg);
+}
+.field__swatch label.swatch--cover-decorations::before 	{
+	background-color: var(--color-blue-active);
+	background-image: url(assets/covers/decorations.svg);
+}
+.field__swatch label.swatch--cover-snowflakes::before 	{
+	background-color: var(--color-blue-active);
+	background-image: url(assets/covers/snowflakes.svg);
+}
+.field__swatch label.swatch--cover-trees::before 	{
+	background-color: var(--color-blue-active);
+	background-image: url(assets/covers/trees.svg);
+}
+
+
+
+/* ----------------------------------------- */
+/* unitility classes
+/* ----------------------------------------- */
+
+.m-0		{ margin: 0; }
+.mt-0		{ margin-top: 0; }
+.mb-0		{ margin-bottom: 0; }
+.mr-0		{ margin-right: 0; }
+.ml-0		{ margin-left: 0; }
+
+.mt-30	{ margin-top: 30px; }
+.mb-30	{ margin-bottom: 30px; }
+
+
+
+.p-0		{ padding: 0; }
+.pt-0		{ padding-top: 0; }
+.pb-0		{ padding-bottom: 0; }
+.pr-0		{ padding-right: 0; }
+.pl-0		{ padding-left: 0; }
+
+
+
+
+
+/* ----------------------------------------- */
+/* přáníčko
+/* ----------------------------------------- */
+
+/* pozadí */
+.background {
+	position: relative;
+	isolation: isolate;
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #184617;
+}
+
+.background--red {
+	background-image: var(--red-gradient);
+}
+
+.background--green {
+	background-image: var(--green-gradient);
+}
+
+.background--blue {
+	background-image: var(--blue-gradient);
+}
+
+.background--gold {
+	background-image: var(--gold-gradient);
+}
+
+.background--tree {
+	background-image: url(assets/backgrounds/tree.jpg);
+}
+
+.background--decorations {
+	background-image: url(assets/backgrounds/decorations.jpg);
+}
+
+.background--snow {
+	background-image: url(assets/backgrounds/snow.jpg);
+}
+
+
+
+/* sníh */
+.snow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+
+
+/* přáníčko */
+.card {
+	position: relative;
+	width: 450px;
+	height: 450px;
+	perspective: 1000px;
+	transition: transform 1s ease-in-out;
+}
+
+.cover,
+.inside-left,
+.inside-right {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	transition: transform 1s ease-in-out;
+}
+
+
+/* obálka */
+.cover {
+	transform: rotateY(0);
+	z-index: 3;
+	transform-origin: left;
+	background-color: #de0000;
+}
+
+.card--red .cover {
+	background-image: var(--red-gradient);
+}
+
+.card--green .cover {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .cover {
+	background-image: var(--blue-gradient);
+}
+
+.card--gold .cover {
+	background-image: var(--gold-gradient);
+}
+
+
+.cover__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* vnitřek - levá strana */
+.inside-left {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 50px;
+	left: -450px;
+	background-color: #de0000;
+	transform: rotateY(180deg);
+	z-index: 1;
+	transform-origin: right;
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card--red .inside-left {
+	background-image: var(--red-gradient);
+}
+
+.card--green .inside-left {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .inside-left {
+	background-image: var(--blue-gradient);
+}
+
+.card--gold .inside-left {
+	background-image: var(--gold-gradient);
+}
+
+.inside-left__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-script);
+	text-align: center;
+	color: white;
+}
+
+.inside-left__text {
+	font-size: 48px;
+	line-height: 1.1;
+	transform: rotate(-4deg);
+}
+
+.inside-left__sender {
+	margin-top: 20px;
+	padding-left: 100px;
+	font-size: 36px;
+	line-height: 1.1;
+	transform: rotate(-8deg);
+}
+
+.inside-left__logo {
+	margin: 30px auto 0 auto;
+	width: 120px;
+	height: auto;
+}
+
+
+/* --- prava vnitrni strana pranicka (kde jsou rozhazene 4 fotky)--- */
+.inside-right {
+	background-color: white;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.photo {
+	position: absolute;
+	width: 320px;
+	height: 240px;
+	padding: 5px;
+	background: beige;
+	box-shadow: 1px 2px 7px 3px rgba(0, 0, 0, 0.3);
+	transition: transform 1s ease-in-out;
+	transform: translate(0, 0) rotate(0);
+	z-index: 2;
+}
+
+.photo img {
+	width: 100%;
+	height: 100%;
+}
+
+.photo1 {
+	left: 50px;
+	top: 30px;
+	transform: translate(0, 0) rotate(3deg);
+}
+
+.photo2 {
+	left: 100px;
+	top: 80px;
+	transform: translate(0, 0) rotate(-3deg);
+}
+
+.photo3 {
+	left: 40px;
+	top: 160px;
+	transform: translate(0, 0) rotate(-1deg);
+}
+
+.photo4 {
+	left: 110px;
+	top: 120px;
+	transform: translate(0, 0) rotate(-7deg);
+}
+
+
+
+/* otevřené přáníčko */
+.card--open {
+	transform: translateX(225px);
+}
+
+.card--open .cover {
+	transform: rotateY(-180deg);
+}
+
+.card--open .inside-left {
+	transform: rotateY(0);
+}
+
+.card--open .photo1 {
+	transform: translate(-30px, -80px) rotate(-9deg);
+}
+
+.card--open .photo2 {
+	transform: translate(170px, -45px) rotate(12deg);
+}
+
+.card--open .photo3 {
+	transform: translate(150px, 100px) rotate(-10deg);
+}
+
+.card--open .photo4 {
+	transform: translate(-160px, 60px) rotate(3deg);
+}
+
+/* instrukce pod přáníčkem */
+.instructions {
+	margin-top: 20px;
+	font-family: var(--font-script);
+	font-weight: 400;
+	font-size: 22px;
+	text-align: center;
+	color: white;
+}
+
+/*instrukce k hudbě*/
+.music {
+	font-family: var(--font-script);
+	text-align: center;
+	font-size: 22px;
+	color: white;
+	margin-bottom: 100px;
+}
+
+.music button {
+	border-radius: 10px;
+	padding: 10px 20px;
+	margin: 0px 10px;
+	font-family: var(--font-script);
+	font-size: 22px;
+	box-shadow: rgba(0, 0, 0, 0.5) 10px 20px 10px;
+	opacity: 50%;
 }
