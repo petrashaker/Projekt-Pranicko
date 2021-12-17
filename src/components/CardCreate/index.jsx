@@ -12,19 +12,20 @@ import Sender from "../Sender";
 import WriteNote from "../WriteNote";
 
 
-const CardCreate = () => {
+const CardCreate = ({handleIdRecieved}) => {
 	//přijmutí dat z komponenty Button
 	const [dataReceived, setDataReceived] = useState([]);
 	const recieveId = (dataReceived) => {
-	  setDataReceived(dataReceived)
+	  setDataReceived([...dataReceived, dataReceived])
+	  handleIdRecieved(dataReceived)
 	}
-	console.log("dataReceived: " + dataReceived)
+	// console.log("dataReceived: " + dataReceived)
 
 	const[backgroundChosen, setBackgroundChosen] = useState(null)
 	const recieveBackground = (backgroundChosen) => {
 		setBackgroundChosen(backgroundChosen)
 	}
-	// console.log("backgroundChosen: " + backgroundChosen)
+	//console.log("backgroundChosen: " + backgroundChosen)
 	
 	const[colourChosen, setColourChosen] = useState(null)
 	const recieveColour= (colourChosen) => {
@@ -64,9 +65,7 @@ const CardCreate = () => {
 
 	let card = []
 	card.push(backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
-	console.log("card: " + card)
-
-
+	// console.log("card: " + card)
 
     return(
 		<>

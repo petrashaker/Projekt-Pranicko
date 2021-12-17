@@ -1,9 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Snowfall from "react-snowfall";
 import { useEffect, useState } from "react/cjs/react.development";
 import { useAudio } from "../../hooks/useAudio"
 
 const Card = () => {
+    const {id} = useParams()
     const [card, setCard] = useState(null);
     const [background, setBackground] = useState(["red", "green", "blue", "gold", "tree", "decorations", "snow"])
     const [openCard, setOpenCard] = useState("")
@@ -12,7 +14,7 @@ const Card = () => {
     //const [music, setMusic] = useState(["god-rest", "silent-night", "jingle-bells"])
 
     useEffect(() => {
-        fetch('https://xmas-api.itgirls.cz/cards/GT57F4')
+        fetch(`https://xmas-api.itgirls.cz/cards/${id}`)
         .then(response => response.json())
         .then(json => setCard(json.data))
     }, [])
@@ -26,7 +28,6 @@ const Card = () => {
             play()
         }
     }
-
   
     return card &&(
         <div className={"background background--" + background.find(b => card.background == b)}>

@@ -18,7 +18,6 @@ const Sender = ({recieveData}) => {
             rows="3" 
             maxLength="20" 
             autoComplete="off" 
-            // value={sentBy}
             onChange={handleChange}
         />
     </div>
