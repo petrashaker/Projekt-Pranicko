@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Button = ({recieveData}) => {
-    const [formData, setFormData] = useState("M5KBWX");
+const Button = ({recieveData, recieveId}) => {
+    const [formData, setFormData] = useState(null);
 
     const dataToSent = {
         "background": recieveData[0],
@@ -33,32 +33,30 @@ const Button = ({recieveData}) => {
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json.data) 
-            const jsonData = json.data.id
-            console.log("jsonData: " + jsonData)
+            console.log("json.data.id: " + json.data.id) 
             
-            // setFormData(jsonData)
+            setFormData(json.data.id)
             // setFormData([...formData, jsonData])
              
         })
     }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     console.log("formData: " + formData)
-   useEffect((jsonData) => {
-       fetchData();
-    //    setFormData([...formData, jsonData])
-    // setFormData(jsonData)
-   }, [])
 
     const navigate = useNavigate();
     const handleClick = () => {
-        fetchData();
+        fetchData()
+        // setFormData(jsonData) 
+        recieveId(formData) //předání ID do komponenty CardCreate pro další použití
         navigate('/prani-pripraveno', {replace:true})
-        // setFormData(jsonData)
-        // console.log("formData: " + formData)
-        // recieveData(jsonData);
-        
-        
     }
+
+   
+
    
     return (
         <button type="submit" className="button button--big mt-30" onClick={handleClick}>

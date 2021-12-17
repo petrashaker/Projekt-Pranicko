@@ -13,12 +13,13 @@ import WriteNote from "../WriteNote";
 
 
 const CardCreate = () => {
-	const [dataReceived, setDataReceived] = useState([]);
 	//přijmutí dat z komponenty Button
-	const recieveData = (dataReceived) => {
-	  setDataReceived([...dataReceived, dataReceived])
+	const [dataReceived, setDataReceived] = useState([]);
+	const recieveId = (dataReceived) => {
+	  setDataReceived(dataReceived)
 	}
-	// console.log("dataReceived: " + dataReceived)
+	console.log("dataReceived: " + dataReceived)
+
 	const[backgroundChosen, setBackgroundChosen] = useState(null)
 	const recieveBackground = (backgroundChosen) => {
 		setBackgroundChosen(backgroundChosen)
@@ -61,23 +62,9 @@ const CardCreate = () => {
 	}
 	// console.log("sender: " + sender)
 
-
-	// const dataToSent = {
-    //     "background": "green",
-    //     "color": "red",
-    //     "cover": "gifts",
-    //     "music": "jingle-bells",
-    //     "snow": 1,
-    //     "text": "Text vánočního přání",
-    //     "sender": "Alena"
-    // }
 	let card = []
-	// card.push("background", backgroundChosen, "color", colourChosen, "cover", picChosen, "music", musicChosen, "snow", snowChosen,"text", noteWritten, "sender", sender)
-	card.push( backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
+	card.push(backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
 	console.log("card: " + card)
-
-	// let cardObject = Object.fromEntries(card)
-	// console.log(cardObject)
 
 
 
@@ -97,7 +84,7 @@ const CardCreate = () => {
                         <ChooseMusic music={configuration.music} recieveData={recieveMusic}/>
 						<WriteNote recieveData={recieveNote}/>
 						<Sender recieveData={recieveSender}/>
-						<Button recieveData={card}/>
+						<Button recieveData={card} recieveId={recieveId}/>
 					</form>
 
 				</div>

@@ -5,13 +5,14 @@ import { useAudio } from "../../hooks/useAudio"
 
 const Card = () => {
     const [card, setCard] = useState(null);
-    const[background, setBackground] = useState(["red", "green", "blue", "gold", "tree", "decorations", "snow"])
+    const [background, setBackground] = useState(["red", "green", "blue", "gold", "tree", "decorations", "snow"])
     const [openCard, setOpenCard] = useState("")
     const [cardColour, setCardColour] = useState(["red", "green", "blue", "gold"])
     const [isPlaying, play, pause] = useAudio('../../assets/audio/jingle-bells.mp3');
+    //const [music, setMusic] = useState(["god-rest", "silent-night", "jingle-bells"])
 
     useEffect(() => {
-        fetch('https://xmas-api.itgirls.cz/cards/3MAZXJ')
+        fetch('https://xmas-api.itgirls.cz/cards/GT57F4')
         .then(response => response.json())
         .then(json => setCard(json.data))
     }, [])
@@ -19,7 +20,11 @@ const Card = () => {
 
     const handleCardOpen = () => {
         setOpenCard(openCard ? "" : "card--open")
-        play()
+        if(openCard) {
+            pause()
+        } else {
+            play()
+        }
     }
 
   
