@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/*"
+  to = "/new-path"
+  status = 200
+  force = false
