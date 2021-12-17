@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/*"
-  to = "/new-path"
+  to = "/"
   status = 200
   force = false
