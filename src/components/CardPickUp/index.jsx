@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import Header from "../Header";
 
 const CardPickUp = () => {

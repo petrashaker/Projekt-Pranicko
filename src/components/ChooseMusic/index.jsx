@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ChooseBackground from "../ChooseBackground";
 
 const ChooseMusic = ({music, recieveData}) => {
     const [chooseMusic, setChooseMusic] = useState('jingle-bells');

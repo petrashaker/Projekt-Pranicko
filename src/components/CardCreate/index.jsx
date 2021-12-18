@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import configuration from "../../configuration";
 import Button from "../Button";
 import ChooseBackground from "../ChooseBackground";
