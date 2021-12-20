@@ -17,6 +17,7 @@ const WriteNote = ({recieveData}) => {
                 rows="3" 
                 maxLength="100" 
                 autoComplete="off"
+                placeholder="Veselé Vánoce a štatný nový rok!"
                 onChange={handleChange}
             />
             <p className="field__description">Zbývá <strong>{100 - text.length}</strong>/100 znaků.</p>

@@ -374,6 +374,10 @@ div.pickup__code {
 	outline-color: var(--color-gold);
 }
 
+.field__input::placeholder {
+	opacity: 0.3;
+}
+
 /* popisek pod polem */
 .field__description {
 	margin: 10px 0 0 0;

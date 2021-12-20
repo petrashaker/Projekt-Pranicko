@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const Button = ({recieveData, recieveId}) => {
     const dataToSent = {
-        "background": recieveData[0],
-        "color": recieveData[1],
-        "cover": recieveData[2],
-        "music": recieveData[3],
-        "snow": recieveData[4],
-        "text": recieveData[5],
-        "sender": recieveData[6]
+        "background": recieveData[0] || "red",
+        "color": recieveData[1] || "red",
+        "cover": recieveData[2] || "gifts",
+        "music": recieveData[3] || "jingle-bells",
+        "snow": recieveData[4] || 0,
+        "text": recieveData[5] || "Veselé Vánoce a štatný nový rok!",
+        "sender": recieveData[6] || "Ježíšek"
     }   
   
     const fetchData = () => {

@@ -24,7 +24,7 @@ const CardReady = ({idRecieved}) => {
 
 				<div className="box shadow mb-30">
 					<div className="box__inside pt-0 pb-0">
-						<a href={`https://wish-you-merry-xmas.netlify.app/card/${idRecieved}`} className="pickup__url">https://wish-you-merry-xmas.netlify.app/card/{idRecieved}</a>
+						<a href={`http://localhost:8080/card/${idRecieved}`} className="pickup__url">http://localhost:8080/card/{idRecieved}</a>
 						<p className="pickup__description">
 							Tento odkaz pošli emailem, přes messenger nebo ho dej na sociální sítě. Po kliknutí na odkaz se zobrazí tvoje přáníčko.
 						</p>

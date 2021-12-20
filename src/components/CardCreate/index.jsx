@@ -63,9 +63,16 @@ const CardCreate = ({handleIdRecieved}) => {
 	}
 	// console.log("sender: " + sender)
 
-	let card = []
-	card.push(backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
-	// console.log("card: " + card)
+	let cardDefault = ["red", "red", "gifts", "jingle-bells", 0, "Veselé Vánoce a štatný nový rok!", "Ježíšek"]
+	
+	let cardChosen = []
+	cardChosen.push(backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
+	
+	let cardDone = cardDefault.concat(cardChosen)
+	cardDone = cardDone.filter((item, index) => {return (cardDone.indexOf(item) == index) })
+	// console.log("cardDefault: " + cardDefault)
+	// console.log("cardChosen: " + cardChosen)
+	// console.log("cardDone: " + cardDone)
 
     return(
 		<>
@@ -83,7 +90,7 @@ const CardCreate = ({handleIdRecieved}) => {
                         <ChooseMusic music={configuration.music} recieveData={recieveMusic}/>
 						<WriteNote recieveData={recieveNote}/>
 						<Sender recieveData={recieveSender}/>
-						<Button recieveData={card} recieveId={recieveId}/>
+						<Button recieveData={cardChosen} recieveId={recieveId}/>
 					</form>
 
 				</div>
