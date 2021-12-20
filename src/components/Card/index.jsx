@@ -8,9 +8,10 @@ const Card = () => {
     const {id} = useParams()
     const [card, setCard] = useState(null);
     const [background, setBackground] = useState(["red", "green", "blue", "gold", "tree", "decorations", "snow"])
-    const [openCard, setOpenCard] = useState("")
     const [cardColour, setCardColour] = useState(["red", "green", "blue", "gold"])
     const [isPlaying, play, pause] = useAudio('../../assets/audio/jingle-bells.mp3');
+    const [openCard, setOpenCard] = useState("")
+    const [open, setOpen] = useState(false)
     //const [music, setMusic] = useState(["god-rest", "silent-night", "jingle-bells"])
 
     useEffect(() => {
@@ -24,8 +25,10 @@ const Card = () => {
         setOpenCard(openCard ? "" : "card--open")
         if(openCard) {
             pause()
+            setOpen(false)
         } else {
             play()
+            setOpen(true)
         }
     }
   
@@ -66,7 +69,7 @@ const Card = () => {
 
             </div> 
 
-            <p className="instructions">Kliknutím mě otevři</p>
+            <p className="instructions">Kliknutím mě {open ? "zavři" : "otevři"}</p>
 
         </div> 
     )
