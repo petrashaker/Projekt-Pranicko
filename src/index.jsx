@@ -7,6 +7,7 @@ import Card from './components/Card';
 import CardCreate from './components/CardCreate';
 import CardPickUp from './components/CardPickUp';
 import CardReady from './components/CardReady';
+import FetchData from './components/FetchData';
 import Mainpage from './components/Mainpage';
 import './style.css';
 
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/vyzvedni-si-prani" element={ <CardPickUp /> } />
           
         <Route path="/prani-pripraveno" element={ <CardReady idRecieved={idRecieved}/> } />
-        <Route path="/card/:id" element={ <Card idRecieved={idRecieved}/> } />
+        {/* <Route path="/card/:id" element={ <Card idRecieved={idRecieved}/> } /> */}
+        <Route path="/card/:id" element={ <FetchData idRecieved={idRecieved}/> } />
       </Routes>
     </BrowserRouter>
 )};

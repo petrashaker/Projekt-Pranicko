@@ -4,22 +4,15 @@ import Snowfall from "react-snowfall";
 import { useEffect, useState } from "react";
 import { useAudio } from "../../hooks/useAudio"
 
-const Card = () => {
-    const {id} = useParams()
-    const [card, setCard] = useState(null);
+const Card = ({card}) => {
+    // const {id} = useParams()
+    // const [card, setCard] = useState(null);
     const [background, setBackground] = useState(["red", "green", "blue", "gold", "tree", "decorations", "snow"])
     const [cardColour, setCardColour] = useState(["red", "green", "blue", "gold"])
     const [isPlaying, play, pause] = useAudio('../../assets/audio/jingle-bells.mp3');
     const [openCard, setOpenCard] = useState("")
     const [open, setOpen] = useState(false)
     //const [music, setMusic] = useState(["god-rest", "silent-night", "jingle-bells"])
-
-    useEffect(() => {
-        fetch(`https://xmas-api.itgirls.cz/cards/${id}`)
-        .then(response => response.json())
-        .then(json => setCard(json.data))
-    }, [])
-    console.log(card)
 
     const handleCardOpen = () => {
         setOpenCard(openCard ? "" : "card--open")
@@ -31,9 +24,14 @@ const Card = () => {
             setOpen(true)
         }
     }
-  
+    console.log("card in Card komp: " + card)
+    console.log(background)
+    console.log("card.background: " + card.background)
+    console.log("card?.id: " + card?.id)
+    console.log("card.sender: " + card.sender)
     return card &&(
-        <div className={"background background--" + background.find(b => card.background == b)}>
+        // <div className="background">
+        <div className={"background background--" + background.find(b => card?.background == b)}>
 
                         
             <div className="music">
@@ -46,16 +44,19 @@ const Card = () => {
                     <Snowfall snowflakeCount={card.snow} />
             </div>
 
-            <div className={"card card--" + cardColour.find(c => card.color == c) + " " + openCard} onClick={handleCardOpen}>
+            <div className="card" onClick={handleCardOpen}>
                 
                 <div className="cover">
-                    <img className="cover__image" src={"../../assets/covers/" + card.cover +".svg"}/>
+                    {/* <img className="cover__image" src="../../assets/covers/gifts.svg"/> */}
+                    <img className="cover__image" src={"../../assets/covers/" + card?.cover +".svg"}/>
                 </div>
             
                 <div className="inside-left">
                     <div className="inside-left__content">
-                        <div className="inside-left__text">{card.text}</div>
-                        <div className="inside-left__sender">{card.sender}</div>
+                        {/* <div className="inside-left__text">Merry Xmas</div>
+                        <div className="inside-left__sender">Love</div> */}
+                        <div className="inside-left__text">{card?.text}</div>
+                        <div className="inside-left__sender">{card?.sender}</div>
                     </div>
                     <img className="inside-left__logo" src="../../assets/czechitas.svg" alt="Czechitas"/>
                 </div>
