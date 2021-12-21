@@ -45,7 +45,7 @@ body {
 	font-family: var(--font-base);
 	background-color: var(--color-bg);
 	background:
-		url(assets/bg.svg) repeat-x bottom center/1200px 150px,
+		url(images/bg.svg) repeat-x bottom center/1200px 150px,
 		radial-gradient(circle farthest-corner at 50% 0%, var(--color-bg1) 50%, var(--color-bg2) 100%);
 }
 
@@ -98,7 +98,7 @@ h1, h2, h3 {
 /* ----------------------------------------------- */
 /* box */
 /* ----------------------------------------------- */
-/* .box {
+.box {
 	padding: 10px;
 	background-color: white;
 }
@@ -106,7 +106,7 @@ h1, h2, h3 {
 .box__inside {
 	border: 1px solid var(--color-gold);
 	padding: 30px;
-} */
+}
 
 
 /* ----------------------------------------------- */
@@ -134,12 +134,12 @@ h1, h2, h3 {
 }
 
 .laurels::before {
-	background-image: url(assets/vetvicka-vlevo.svg);
+	background-image: url(images/vetvicka-vlevo.svg);
 	margin-right: 0.1em;
 }
 
 .laurels::after {
-	background-image: url(assets/vetvicka-vpravo.svg);
+	background-image: url(images/vetvicka-vpravo.svg);
 	margin-left: 0.1em;
 }
 
@@ -260,11 +260,11 @@ h1, h2, h3 {
 }
 
 .action:nth-child(odd) .action__decoration {
-	background: url(assets/deco1.svg) no-repeat center center/contain;
+	background: url(images/deco1.svg) no-repeat center center/contain;
 	grid-column: 1;
 }
 .action:nth-child(even) .action__decoration {
-	background: url(assets/deco2.svg) no-repeat center center/contain;
+	background: url(images/deco2.svg) no-repeat center center/contain;
 	grid-column: 2;
 }
 
@@ -297,7 +297,49 @@ h1, h2, h3 {
 /* formulář pro vyzvednutí přáníčka */
 /* ----------------------------------------------- */
 
+.pickup {
+	margin: 0;
+	text-align: center;
+}
 
+.pickup__label {
+	display: block;
+	font-size: 28px;
+	font-family: var(--font-script) ;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pickup__code,
+.pickup__url {
+	width: 100%;
+	font-family: var(--font-base);
+	line-height: 1;
+	text-align: center;
+	color: var(--color-gold);
+	background-color: white;
+	border: 0;
+	outline: 0;
+}
+
+.pickup__code {
+	font-size: 80px;
+}
+
+div.pickup__code {
+	padding: 20px;
+}
+
+.pickup__url {
+	display: block;
+	padding: 20px;
+	font-size: 30px;
+}
+
+.pickup__url:hover,
+.pickup__url:focus {
+	color: var(--blue);
+}
 
 /* ----------------------------------------- */
 /* formular
@@ -330,10 +372,6 @@ h1, h2, h3 {
 	color: var(--color-blue);
 	border: 1px solid var(--color-blue);
 	outline-color: var(--color-gold);
-}
-
-.field__input::placeholder {
-	opacity: 0.3;
 }
 
 /* popisek pod polem */
@@ -460,25 +498,25 @@ h1, h2, h3 {
 .field__swatch label.swatch--green::before 				{ background-image: var(--green-gradient); }
 .field__swatch label.swatch--blue::before 				{ background-image: var(--blue-gradient); }
 .field__swatch label.swatch--gold::before 				{ background-image: var(--gold-gradient); }
-.field__swatch label.swatch--tree::before 				{ background-image: url(assets/backgrounds/tree.jpg); }
-.field__swatch label.swatch--decorations::before 	{ background-image: url(assets/backgrounds/decorations.jpg); }
-.field__swatch label.swatch--snow::before 				{ background-image: url(assets/backgrounds/snow.jpg); }
+.field__swatch label.swatch--tree::before 				{ background-image: url(images/backgrounds/tree.jpg); }
+.field__swatch label.swatch--decorations::before 	{ background-image: url(images/backgrounds/decorations.jpg); }
+.field__swatch label.swatch--snow::before 				{ background-image: url(images/backgrounds/snow.jpg); }
 
 .field__swatch label.swatch--cover-gifts::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(assets/covers/gifts.svg);
+	background-image: url(images/covers/gifts.svg);
 }
 .field__swatch label.swatch--cover-decorations::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(assets/covers/decorations.svg);
+	background-image: url(images/covers/decorations.svg);
 }
 .field__swatch label.swatch--cover-snowflakes::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(assets/covers/snowflakes.svg);
+	background-image: url(images/covers/snowflakes.svg);
 }
 .field__swatch label.swatch--cover-trees::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(assets/covers/trees.svg);
+	background-image: url(images/covers/trees.svg);
 }
 
 
@@ -504,3 +542,268 @@ h1, h2, h3 {
 .pr-0		{ padding-right: 0; }
 .pl-0		{ padding-left: 0; }
 
+
+
+
+
+/* ----------------------------------------- */
+/* přáníčko
+/* ----------------------------------------- */
+
+/* pozadí */
+.background {
+	position: relative;
+	isolation: isolate;
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #184617;
+}
+
+.background--red {
+	background-image: var(--red-gradient);
+}
+
+.background--green {
+	background-image: var(--green-gradient);
+}
+
+.background--blue {
+	background-image: var(--blue-gradient);
+}
+
+.background--gold {
+	background-image: var(--gold-gradient);
+}
+
+.background--tree {
+	background-image: url(images/backgrounds/tree.jpg);
+}
+
+.background--decorations {
+	background-image: url(images/backgrounds/decorations.jpg);
+}
+
+.background--snow {
+	background-image: url(images/backgrounds/snow.jpg);
+}
+
+
+
+/* sníh */
+.snow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+
+
+/* přáníčko */
+.card {
+	position: relative;
+	width: 450px;
+	height: 450px;
+	perspective: 1000px;
+	transition: transform 1s ease-in-out;
+}
+
+.cover,
+.inside-left,
+.inside-right {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	transition: transform 1s ease-in-out;
+}
+
+
+/* obálka */
+.cover {
+	transform: rotateY(0);
+	z-index: 3;
+	transform-origin: left;
+	background-color: #de0000;
+}
+
+.card--red .cover {
+	background-image: var(--red-gradient);
+}
+
+.card--green .cover {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .cover {
+	background-image: var(--blue-gradient);
+}
+
+.card--gold .cover {
+	background-image: var(--gold-gradient);
+}
+
+
+.cover__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* vnitřek - levá strana */
+.inside-left {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 50px;
+	left: -450px;
+	background-color: #de0000;
+	transform: rotateY(180deg);
+	z-index: 1;
+	transform-origin: right;
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card--red .inside-left {
+	background-image: var(--red-gradient);
+}
+
+.card--green .inside-left {
+	background-image: var(--green-gradient);
+}
+
+.card--blue .inside-left {
+	background-image: var(--blue-gradient);
+}
+
+.card--gold .inside-left {
+	background-image: var(--gold-gradient);
+}
+
+.inside-left__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-script);
+	text-align: center;
+	color: white;
+}
+
+.inside-left__text {
+	font-size: 48px;
+	line-height: 1.1;
+	transform: rotate(-4deg);
+}
+
+.inside-left__sender {
+	margin-top: 20px;
+	padding-left: 100px;
+	font-size: 36px;
+	line-height: 1.1;
+	transform: rotate(-8deg);
+}
+
+.inside-left__logo {
+	margin: 30px auto 0 auto;
+	width: 120px;
+	height: auto;
+}
+
+
+/* --- prava vnitrni strana pranicka (kde jsou rozhazene 4 fotky)--- */
+.inside-right {
+	background-color: white;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.photo {
+	position: absolute;
+	width: 320px;
+	height: 240px;
+	padding: 5px;
+	background: beige;
+	box-shadow: 1px 2px 7px 3px rgba(0, 0, 0, 0.3);
+	transition: transform 1s ease-in-out;
+	transform: translate(0, 0) rotate(0);
+	z-index: 2;
+}
+
+.photo img {
+	width: 100%;
+	height: 100%;
+}
+
+.photo1 {
+	left: 50px;
+	top: 30px;
+	transform: translate(0, 0) rotate(3deg);
+}
+
+.photo2 {
+	left: 100px;
+	top: 80px;
+	transform: translate(0, 0) rotate(-3deg);
+}
+
+.photo3 {
+	left: 40px;
+	top: 160px;
+	transform: translate(0, 0) rotate(-1deg);
+}
+
+.photo4 {
+	left: 110px;
+	top: 120px;
+	transform: translate(0, 0) rotate(-7deg);
+}
+
+
+
+/* otevřené přáníčko */
+.card--open {
+	transform: translateX(225px);
+}
+
+.card--open .cover {
+	transform: rotateY(-180deg);
+}
+
+.card--open .inside-left {
+	transform: rotateY(0);
+}
+
+.card--open .photo1 {
+	transform: translate(-30px, -80px) rotate(-9deg);
+}
+
+.card--open .photo2 {
+	transform: translate(170px, -45px) rotate(12deg);
+}
+
+.card--open .photo3 {
+	transform: translate(150px, 100px) rotate(-10deg);
+}
+
+.card--open .photo4 {
+	transform: translate(-160px, 60px) rotate(3deg);
+}
+
+/* instrukce pod přáníčkem */
+.instructions {
+	margin-top: 20px;
+	font-family: var(--font-script);
+	font-weight: 400;
+	font-size: 22px;
+	text-align: center;
+	color: white;
+}
