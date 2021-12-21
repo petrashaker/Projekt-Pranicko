@@ -1,5 +1,3 @@
-
-   
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -26,8 +24,7 @@ const App = () => {
         <Route path="/vyzvedni-si-prani" element={ <CardPickUp /> } />
           
         <Route path="/prani-pripraveno" element={ <CardReady idRecieved={idRecieved}/> } />
-        {/* <Route path="/card/:id" element={ <Card idRecieved={idRecieved}/> } /> */}
-        <Route path="/card/:id" element={ <FetchData idRecieved={idRecieved}/> } />
+        <Route path="/card/:id" element={ <FetchData /> } />
       </Routes>
     </BrowserRouter>
 )};

@@ -11,20 +11,14 @@ const FetchData = () => {
     const fetchData = () => {
         fetch(`https://xmas-api.itgirls.cz/cards/${id}`)
         .then(response => response.json())
-        .then(json => setCard(JSON.stringify(json.data)))
-        // .then(json => setCard(json.success)) funguje
+        .then(json => setCard(json.data))
         
     }
    
     useEffect(() => {
         fetchData()
     }, [id])
-    console.log("card: " + card)  
     
-    // return (
-    //     <p>Tady má být přání</p>
-    // )
-    // return card && <Card card={card}/>
     return card && <Card card={card}/>
 }
 

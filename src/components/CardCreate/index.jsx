@@ -19,60 +19,33 @@ const CardCreate = ({handleIdRecieved}) => {
 	  setDataReceived([...dataReceived, dataReceived])
 	  handleIdRecieved(dataReceived)
 	}
-	// console.log("dataReceived: " + dataReceived)
 
 	const[backgroundChosen, setBackgroundChosen] = useState(null)
-	const recieveBackground = (backgroundChosen) => {
-		setBackgroundChosen(backgroundChosen)
-	}
-	//console.log("backgroundChosen: " + backgroundChosen)
+	const recieveBackground = (backgroundChosen) => { setBackgroundChosen(backgroundChosen) }
 	
 	const[colourChosen, setColourChosen] = useState(null)
-	const recieveColour= (colourChosen) => {
-		setColourChosen(colourChosen)
-	}
-	// console.log("colourChosen: " + colourChosen)
+	const recieveColour= (colourChosen) => { setColourChosen(colourChosen) }
 	
 	const[picChosen, setPicChosen] = useState(null)
-	const recievePic= (picChosen) => {
-		setPicChosen(picChosen)
-	}
-	// console.log("picChosen: " + picChosen)
+	const recievePic= (picChosen) => { setPicChosen(picChosen) }
 	
 	const[snowChosen, setSnowChosen] = useState(null)
-	const recieveSnow = (snowChosen) => {
-		setSnowChosen(snowChosen)
-	}
-	// console.log("snowChosen: " + snowChosen)
+	const recieveSnow = (snowChosen) => { setSnowChosen(snowChosen) }
 
 	const[musicChosen, setMusicChosen] = useState(null)
-	const recieveMusic= (musicChosen) => {
-		setMusicChosen(musicChosen)
-	}
-	// console.log("musicChosen: " + musicChosen)
+	const recieveMusic= (musicChosen) => { setMusicChosen(musicChosen) }
 	
 	const[noteWritten, setNoteWritten] = useState(null)
-	const recieveNote= (noteWritten) => {
-		setNoteWritten(noteWritten)
-	}
-	// console.log("noteWritten: " + noteWritten)
+	const recieveNote= (noteWritten) => { setNoteWritten(noteWritten) }
 	
 	const[sender, setSender] = useState(null)
-	const recieveSender= (sender) => {
-		setSender(sender)
-	}
-	// console.log("sender: " + sender)
+	const recieveSender= (sender) => { setSender(sender) }
 
-	let cardDefault = ["red", "red", "gifts", "jingle-bells", 0, "Veselé Vánoce a štatný nový rok!", "Ježíšek"]
-	
+	let cardDefault = ["red", "red", "gifts", "jingle-bells", 0, "Veselé Vánoce a šťastný nový rok!", "Ježíšek"]
 	let cardChosen = []
 	cardChosen.push(backgroundChosen, colourChosen, picChosen, musicChosen, snowChosen, noteWritten, sender)
-	
 	let cardDone = cardDefault.concat(cardChosen)
-	cardDone = cardDone.filter((item, index) => {return (cardDone.indexOf(item) == index) })
-	// console.log("cardDefault: " + cardDefault)
-	// console.log("cardChosen: " + cardChosen)
-	// console.log("cardDone: " + cardDone)
+	cardDone = cardDone.filter((item, index) => { return (cardDone.indexOf(item) == index) })
 
     return(
 		<>

@@ -8,7 +8,7 @@ const Button = ({recieveData, recieveId}) => {
         "cover": recieveData[2] || "gifts",
         "music": recieveData[3] || "jingle-bells",
         "snow": recieveData[4] || 0,
-        "text": recieveData[5] || "Veselé Vánoce a štastný nový rok!",
+        "text": recieveData[5] || "Veselé Vánoce a šťastný nový rok!",
         "sender": recieveData[6] || "Ježíšek"
     }   
   
