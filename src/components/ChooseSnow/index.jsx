@@ -6,7 +6,7 @@ const ChooseSnow = ({snow, recieveData}) => {
         setChooseSnow(target.value)
         recieveData(target.value)
     }
-    // console.log("chooseSnow " + chooseSnow)
+ 
     return (
         <div className="field">
         <label className="field__label ">Sníh na pozadí</label>

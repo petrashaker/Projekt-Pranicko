@@ -6,7 +6,7 @@ const Sender = ({recieveData}) => {
         setSentBy(target.value)
         recieveData(target.value)
     }
-    // console.log("sent: " + sentBy)
+   
     return (
         <div className="field">
         <label className="field__label" htmlFor="sender">Odesílatel (podpis)</label>

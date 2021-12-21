@@ -1,7 +1,7 @@
 import React from "react";
 import Snowfall from "react-snowfall";
 import { useState } from "react";
-import { useAudio } from "../../hooks/useAudio"
+import { useAudio } from "../../hooks/useAudio";
 
 const Card = ({card}) => {
     const [openCard, setOpenCard] = useState("")

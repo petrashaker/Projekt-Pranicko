@@ -6,7 +6,7 @@ const ChooseBackground = ({backgrounds, recieveData}) => {
         setChooseBackground(target.value)
         recieveData(target.value)
     }
-    // console.log("chooseBackground " + chooseBackground)
+
     return (
         <div className="field">
             <label className="field__label">Pozadí stránky</label>

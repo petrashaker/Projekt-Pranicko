@@ -6,7 +6,7 @@ const ChoosePicture = ({pictures, recieveData}) => {
         setChoosePic(target.value)
         recieveData(target.value)
     }
-    // console.log("choosePic " + choosePic)
+  
     return (
         <div className="field">
         <label className="field__label">Obrázek na obálce</label>

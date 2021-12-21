@@ -4,15 +4,17 @@ import Card from "../Card";
 
 const FetchData = () => {
     const { id } = useParams();
-    console.log(id)
-    console.log(`https://xmas-api.itgirls.cz/cards/${id}`)
     const [card, setCard] = useState(null)
 
     const fetchData = () => {
         fetch(`https://xmas-api.itgirls.cz/cards/${id}`)
-        .then(response => response.json())
-        .then(json => setCard(json.data))
-        
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            }
+            throw new Error('Request failed!')
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => setCard(jsonResponse.data))
     }
    
     useEffect(() => {

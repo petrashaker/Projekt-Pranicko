@@ -55,7 +55,7 @@ const CardCreate = ({handleIdRecieved}) => {
 			<div className="box">
 				<div className="box__inside">
 
-					<form className="configurator">
+					<form>
                         <ChooseBackground backgrounds={configuration.backgrounds} recieveData={recieveBackground} />
                         <ChooseColour colours={configuration.colors} recieveData={recieveColour}/>
                         <ChoosePicture pictures={configuration.covers} recieveData={recievePic}/>

@@ -14,18 +14,21 @@ const Button = ({recieveData, recieveId}) => {
   
     const fetchData = () => {
         fetch('https://xmas-api.itgirls.cz/cards', {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToSent)
-        })
-        .then(response => response.json())
-        .then(json => {
-            return recieveId(json.data.id)
-        })
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToSent)
+            })
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            }
+            throw new Error('Request failed!')
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => recieveId(jsonResponse.data.id))
     }
-    
+
     useEffect(() => {
         fetchData()
     }, [])

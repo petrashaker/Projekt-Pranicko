@@ -6,7 +6,7 @@ const WriteNote = ({recieveData}) => {
         setText(target.value)
         recieveData(target.value)
     }
-    // console.log("text: " + text)
+
     return (
         <div className="field">
             <label className="field__label" htmlFor="text">Text uvnitř přáníčka</label>

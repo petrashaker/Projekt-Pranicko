@@ -7,7 +7,7 @@ const ChooseMusic = ({music, recieveData}) => {
         recieveData(target.value)
         
     }
-    // console.log("chooseMusic " + chooseMusic)
+
     return (
         <div className="field">
             <label className="field__label">Hudba</label>
