@@ -45,7 +45,7 @@ body {
 	font-family: var(--font-base);
 	background-color: var(--color-bg);
 	background:
-		url(images/bg.svg) repeat-x bottom center/1200px 150px,
+		url(./assets/bg.svg) repeat-x bottom center/1200px 150px,
 		radial-gradient(circle farthest-corner at 50% 0%, var(--color-bg1) 50%, var(--color-bg2) 100%);
 }
 
@@ -134,12 +134,12 @@ h1, h2, h3 {
 }
 
 .laurels::before {
-	background-image: url(images/vetvicka-vlevo.svg);
+	background-image: url(./assets/vetvicka-vlevo.svg);
 	margin-right: 0.1em;
 }
 
 .laurels::after {
-	background-image: url(images/vetvicka-vpravo.svg);
+	background-image: url(./assets/vetvicka-vpravo.svg);
 	margin-left: 0.1em;
 }
 
@@ -260,11 +260,11 @@ h1, h2, h3 {
 }
 
 .action:nth-child(odd) .action__decoration {
-	background: url(images/deco1.svg) no-repeat center center/contain;
+	background: url(./assets/deco1.svg) no-repeat center center/contain;
 	grid-column: 1;
 }
 .action:nth-child(even) .action__decoration {
-	background: url(images/deco2.svg) no-repeat center center/contain;
+	background: url(./assets/deco2.svg) no-repeat center center/contain;
 	grid-column: 2;
 }
 
@@ -498,25 +498,25 @@ div.pickup__code {
 .field__swatch label.swatch--green::before 				{ background-image: var(--green-gradient); }
 .field__swatch label.swatch--blue::before 				{ background-image: var(--blue-gradient); }
 .field__swatch label.swatch--gold::before 				{ background-image: var(--gold-gradient); }
-.field__swatch label.swatch--tree::before 				{ background-image: url(images/backgrounds/tree.jpg); }
-.field__swatch label.swatch--decorations::before 	{ background-image: url(images/backgrounds/decorations.jpg); }
-.field__swatch label.swatch--snow::before 				{ background-image: url(images/backgrounds/snow.jpg); }
+.field__swatch label.swatch--tree::before 				{ background-image: url(./assets/backgrounds/tree.jpg); }
+.field__swatch label.swatch--decorations::before 	{ background-image: url(./assets/backgrounds/decorations.jpg); }
+.field__swatch label.swatch--snow::before 				{ background-image: url(./assets/backgrounds/snow.jpg); }
 
 .field__swatch label.swatch--cover-gifts::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(images/covers/gifts.svg);
+	background-image: url(./assets/covers/gifts.svg);
 }
 .field__swatch label.swatch--cover-decorations::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(images/covers/decorations.svg);
+	background-image: url(./assets/covers/decorations.svg);
 }
 .field__swatch label.swatch--cover-snowflakes::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(images/covers/snowflakes.svg);
+	background-image: url(./assets/covers/snowflakes.svg);
 }
 .field__swatch label.swatch--cover-trees::before 	{
 	background-color: var(--color-blue-active);
-	background-image: url(images/covers/trees.svg);
+	background-image: url(./assets/covers/trees.svg);
 }
 
 
@@ -583,15 +583,15 @@ div.pickup__code {
 }
 
 .background--tree {
-	background-image: url(images/backgrounds/tree.jpg);
+	background-image: url(./assets/backgrounds/tree.jpg);
 }
 
 .background--decorations {
-	background-image: url(images/backgrounds/decorations.jpg);
+	background-image: url(./assets/backgrounds/decorations.jpg);
 }
 
 .background--snow {
-	background-image: url(images/backgrounds/snow.jpg);
+	background-image: url(./assets/backgrounds/snow.jpg);
 }
 
 

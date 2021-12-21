@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Card from './components/Card';
 import CardCreate from './components/CardCreate';
 import CardPickUp from './components/CardPickUp';
 import CardReady from './components/CardReady';
